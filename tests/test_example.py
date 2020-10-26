@@ -18,3 +18,13 @@ class TestExample:
         res = client.vr(client.get_booking(bookingid))
         exists = res.json()
         assert exists == data
+
+    def test_update_booking(self, client):
+        data = random.random_booking()
+        res = client.vr(client.create_booking(data), [200, 201])
+        created = res.json()
+        bookingid = created.get("bookingid")
+        data2 = random.random_booking()
+        res = client.vr(client.update_booking(bookingid, data2))
+        updated = res.json()
+        assert updated == data2
