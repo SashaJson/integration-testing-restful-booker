@@ -1,3 +1,5 @@
+from random import randint
+
 from api import random
 
 
@@ -28,3 +30,7 @@ class TestExample:
         res = client.vr(client.update_booking(bookingid, data2))
         updated = res.json()
         assert updated == data2
+
+    def test_not_existing_booking(self, client):
+        res = client.get_booking(randint(10000, 99999))
+        assert res.status_code == 404
