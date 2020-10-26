@@ -2,7 +2,6 @@ import requests
 
 
 class RestfulBookerClient:
-
     _s = requests.sessions()
     host = None
 
