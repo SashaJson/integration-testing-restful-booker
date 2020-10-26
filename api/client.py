@@ -20,3 +20,11 @@ class RestfulBookerClient:
         session_token = res.json().get("token")
         cookie = requests.cookies.create_cookie("token", session_token)
 
+    def create_booking(self, data: dict):
+        return self._s.post(self.host + "/booking", json=data)
+
+    def update_booking(self, uid: int, data: dict):
+        return self._s.put(self.host + f"/booking/{uid}", json=data)
+
+    def get_booking(self, uid: dict):
+        return self._s.get(self.host + f"/booking/{uid}")
