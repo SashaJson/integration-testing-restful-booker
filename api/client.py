@@ -19,6 +19,7 @@ class RestfulBookerClient:
             raise Exception('Unable to authorize using given credentials')
         session_token = res.json().get("token")
         cookie = requests.cookies.create_cookie("token", session_token)
+        self._s.cookies.set_cookie(cookie)
 
     def create_booking(self, data: dict):
         return self._s.post(self.host + "/booking", json=data)
