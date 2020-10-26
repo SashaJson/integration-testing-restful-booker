@@ -1,0 +1,6 @@
+faker # lib for generations test data
+flake8 # lib for assert code-style
+flake8-import-order # plugin for lib above
+pytest # test framework
+requests # lib for send HTTP-question
+tox # lib for validate our tests
