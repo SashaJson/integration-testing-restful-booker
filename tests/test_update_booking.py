@@ -3,7 +3,7 @@ from random import randint
 from api import random
 
 
-class TestExample:
+class TestUpdateBooking:
 
     def test_update_booking(self, client):
         data = random.random_booking()
