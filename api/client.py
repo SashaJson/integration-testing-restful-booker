@@ -26,8 +26,11 @@ class RestfulBookerClient:
     def update_booking(self, uid: int, data: dict):
         return self._s.put(self.host + f"/booking/{uid}", json=data)
 
-    def get_booking(self, uid: dict):
+    def get_booking_by_id(self, uid: dict):
         return self._s.get(self.host + f"/booking/{uid}")
+
+    def get_all_booking(self):
+        return self._s.get(self.host + "/booking/")
 
     def partial_update_booking(self, uid: int, data: dict):
         return self._s.patch(self.host + f"/booking/{uid}", json=data)
