@@ -15,3 +15,10 @@ def random_booking():
         },
         "additionalneeds": faker.word()
     }
+
+
+def random_booking_partial():
+    return {
+        "firstname": faker.first_name(),
+        "lastname": faker.last_name(),
+    }
