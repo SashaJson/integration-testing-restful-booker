@@ -10,8 +10,10 @@ class TestExistsBooking:
         res = client.create_booking(data)
         assert res.status_code == 200
         created = res.json()
-        bookingid = created.get("bookingid")
+        bookingid = created.get('bookingid')
         res = client.get_booking(bookingid)
         assert res.status_code == 200
         exists = res.json()
         assert exists == data
+        res = client.delete_booking(bookingid)
+        assert res.status_code == 201
